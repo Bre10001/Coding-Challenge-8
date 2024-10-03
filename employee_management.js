@@ -14,13 +14,6 @@ class Employee {
     }
 }
 
-// Example usage:
-const employee1 = new Employee('Alice', 100000, 'Developer', 'Engineering');
-
-
-employee1.getDetails(); // Output: Name: Alice, Position: Developer, Salary: $100000
-//employee2.getDetails(); // Output: Name: Bob, Position: Designer, Salary: $80000
-
 // Task 2: Create a Department Class
 
 class Department{
@@ -38,15 +31,6 @@ class Department{
         return this.employees.reduce((total, employee) => total + employee.salary, 0); //Calculates the total department salary
     }
 }
-
-// Example Usage:
-const employee2 = new Employee('Bob', 80000, 'Designer', 'Design'); // new employee
-
-const Design = new Department('Design'); // department declaration
-
-Design.addEmployee(employee2) // adds new employee to array
-
-console.log(`The total department salary is:`, Design.getDepartmentSalary()); //Outputs the total department salary
 
 
 
