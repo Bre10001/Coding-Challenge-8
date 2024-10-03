@@ -41,8 +41,35 @@ class Manager extends Employee{
     }
 
     getDetails(){
-        console.log(`Name: ${this.name} manages the ${this.department} Department earning Salary $${this.salary} annually receieved $${this.bonus} in bonuses`); // Overriding the getDeatils method to include bonus
+        console.log(`${super.getDetails()}, Bonus: $${this.bonus}`); // Overriding the getDeatils method to include bonus
     
+    }
+}
+
+// Task 4: Handle Bonuses for Managers
+
+class Department{
+    constructor(name, employees){
+        this.name = name; // department name
+        this.employees = [];  //empty employee array
+    }
+
+    addEmployee(employee){
+        this.employees.push(employee); //Method to add employee to array
+
+    }
+
+    getDepartmentSalary(){
+        return this.employees.reduce((total, employee) => total + employee.salary, 0); //Calculates the total department salary
+    }
+
+    calculateTotalSalaryWithBonus(){ //method to calculate bonus
+        return this.employees.reduce((total, employee) => {
+            if (employee instanceof Manager) { // includes managers
+                return total + employee.salary + employee.bonus; // calculate total salary including bonus
+            }
+            return total + employee.salary; 
+        }, 0 );
     }
 }
 
